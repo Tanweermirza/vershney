@@ -581,7 +581,7 @@ class ItemDetails extends StatelessWidget {
                         child: GestureDetector(
                           onTap: () {
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: ((context) => ThirdScreen())));
+                                builder: ((context) => const ThirdScreen())));
                           },
                           child: Container(
                             height: 60,
@@ -638,7 +638,7 @@ class ItemDetails extends StatelessWidget {
                       color: Color.fromRGBO(237, 143, 3, 1),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   GridView.builder(
