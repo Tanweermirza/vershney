@@ -130,7 +130,7 @@ class ItemDetails extends StatelessWidget {
                       }).toList(),
                       options: CarouselOptions(
                         height: 150,
-                        viewportFraction: 0.33,
+                        viewportFraction: 0.327,
                         initialPage: 0,
                         enableInfiniteScroll: true,
                         reverse: true,
@@ -140,7 +140,7 @@ class ItemDetails extends StatelessWidget {
                             const Duration(milliseconds: 800),
                         autoPlayCurve: Curves.fastOutSlowIn,
                         enlargeCenterPage: true,
-                        enlargeFactor: 0.2,
+                        enlargeFactor: 0.1,
                         scrollDirection: Axis.horizontal,
                       )),
                   const SizedBox(
@@ -638,6 +638,9 @@ class ItemDetails extends StatelessWidget {
                       color: Color.fromRGBO(237, 143, 3, 1),
                     ),
                   ),
+                  SizedBox(
+                    height: 10,
+                  ),
                   GridView.builder(
                       physics: const ScrollPhysics(),
                       shrinkWrap: true,
@@ -652,7 +655,7 @@ class ItemDetails extends StatelessWidget {
                           children: [
                             CircleAvatar(
                               backgroundColor: Colors.white,
-                              radius: 40,
+                              radius: 25,
                               child: Image.asset(
                                   'assets/images/${previousOrderList[index]['image']}'),
                             ),

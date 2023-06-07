@@ -105,7 +105,8 @@ class _FirstScreenState extends State<FirstScreen> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(40.0),
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 20.0, horizontal: 30.0),
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -244,14 +245,24 @@ class _FirstScreenState extends State<FirstScreen> {
                                   children: [
                                     CircleAvatar(
                                       backgroundColor: Colors.white,
-                                      radius: 50,
+                                      radius: 25,
                                       child: Image.asset(
                                           'assets/images/${previousOrderList[index]['image']}'),
                                     ),
-                                    Text(previousOrderList[index]['title']
-                                        .toString()),
-                                    Text(previousOrderList[index]['subtitle']
-                                        .toString()),
+                                    Text(
+                                      previousOrderList[index]['title']
+                                          .toString(),
+                                      style: const TextStyle(
+                                          fontSize: 12.0,
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                    Text(
+                                      previousOrderList[index]['subtitle']
+                                          .toString(),
+                                      style: const TextStyle(
+                                          fontSize: 10.0,
+                                          fontWeight: FontWeight.w500),
+                                    ),
                                   ],
                                 ),
                               );
@@ -266,6 +277,9 @@ class _FirstScreenState extends State<FirstScreen> {
                             color: Color.fromRGBO(237, 143, 3, 1),
                           ),
                         ),
+                        const SizedBox(
+                          height: 10.0,
+                        ),
                         GridView.builder(
                             physics: const ScrollPhysics(),
                             shrinkWrap: true,
@@ -276,22 +290,28 @@ class _FirstScreenState extends State<FirstScreen> {
                             itemCount: offersList.length,
                             itemBuilder: (BuildContext context, int index) {
                               return GestureDetector(
-                                onTap: () {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) =>
-                                          const SecondScreen(index: 1)));
-                                },
+                                onTap: () {},
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     CircleAvatar(
                                       backgroundColor: Colors.white,
-                                      radius: 50,
+                                      radius: 25,
                                       child: Image.asset(
                                           'assets/images/${offersList[index]['image']}'),
                                     ),
-                                    Text(offersList[index]['title']),
-                                    Text(offersList[index]['subtitle']),
+                                    Text(
+                                      offersList[index]['title'],
+                                      style: const TextStyle(
+                                          fontSize: 12.0,
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                    Text(
+                                      offersList[index]['subtitle'],
+                                      style: const TextStyle(
+                                          fontSize: 10.0,
+                                          fontWeight: FontWeight.w500),
+                                    ),
                                   ],
                                 ),
                               );
@@ -302,8 +322,6 @@ class _FirstScreenState extends State<FirstScreen> {
                               padding:
                                   const EdgeInsets.symmetric(vertical: 15.0),
                               child: Container(
-                                margin: const EdgeInsets.symmetric(
-                                    horizontal: 30.0),
                                 padding:
                                     const EdgeInsets.symmetric(vertical: 20.0),
                                 decoration: BoxDecoration(
@@ -311,61 +329,69 @@ class _FirstScreenState extends State<FirstScreen> {
                                         const Color.fromRGBO(245, 244, 246, 1),
                                     borderRadius: BorderRadius.circular(50.0)),
                                 child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Expanded(
-                                        child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: const [
-                                        Icon(
-                                          Icons.settings_outlined,
-                                          size: 30.0,
-                                          color: Colors.black,
-                                        ),
-                                        SizedBox(height: 5.0),
-                                        Text(
-                                          "Settings",
-                                          style: TextStyle(
-                                              color: Colors.black,
-                                              fontSize: 15.0,
-                                              fontWeight: FontWeight.w500),
-                                        )
-                                      ],
-                                    )),
-                                    Expanded(
-                                        child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: const [
-                                        Icon(
-                                          Icons.shopping_cart_outlined,
-                                          size: 30.0,
-                                          color: Colors.black,
-                                        ),
-                                        SizedBox(height: 5.0),
-                                        Text(
-                                          "My Cart",
-                                          style: TextStyle(
-                                              color: Colors.black,
-                                              fontSize: 15.0,
-                                              fontWeight: FontWeight.w500),
-                                        )
-                                      ],
-                                    ))
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 40.0),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: const [
+                                          Icon(
+                                            Icons.settings_outlined,
+                                            size: 30.0,
+                                            color: Colors.black,
+                                          ),
+                                          SizedBox(height: 5.0),
+                                          Text(
+                                            "Settings",
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 15.0,
+                                                fontWeight: FontWeight.w500),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 40.0),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: const [
+                                          Icon(
+                                            Icons.shopping_cart_outlined,
+                                            size: 30.0,
+                                            color: Colors.black,
+                                          ),
+                                          SizedBox(height: 5.0),
+                                          Text(
+                                            "My Cart",
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 15.0,
+                                                fontWeight: FontWeight.w500),
+                                          )
+                                        ],
+                                      ),
+                                    )
                                   ],
                                 ),
                               ),
                             ),
                             Positioned(
-                              left: MediaQuery.of(context).size.width * 0.4,
+                              left: MediaQuery.of(context).size.width * 0.35,
                               top: 5.0,
                               child: const CircleAvatar(
-                                radius: 60.0,
+                                radius: 55.0,
                                 backgroundColor: Colors.white,
                               ),
                             ),
                             Positioned(
-                              left: MediaQuery.of(context).size.width * 0.42,
+                              left: MediaQuery.of(context).size.width * 0.366,
                               top: 10.0,
                               child: const CircleAvatar(
                                 radius: 50.0,
